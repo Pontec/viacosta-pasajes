@@ -1,7 +1,8 @@
 package com.utp.viacosta.controller;
 
-import com.utp.viacosta.model.UsuarioModelo;
-import com.utp.viacosta.service.impl.UsuarioServiceImpl;
+import com.utp.viacosta.model.EmpleadoModel;
+import com.utp.viacosta.service.impl.EmpleadoServiceImpl;
+import com.utp.viacosta.util.FxmlCargarUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,10 +21,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
-public class usuarioControlador implements Initializable {
+public class LoginController implements Initializable {
 
     @Autowired
-    private UsuarioServiceImpl usuarioServiceImpl;
+    private EmpleadoServiceImpl empleadoServiceImpl;
 
     @FXML
     private Button btn_ingresar;
@@ -37,6 +38,7 @@ public class usuarioControlador implements Initializable {
     @FXML
     void Login(ActionEvent event) throws IOException {
         Login();
+
     }
 
 
@@ -46,15 +48,16 @@ public class usuarioControlador implements Initializable {
     }
 
     // Método que maneja el inicio de sesión
-    private void Login() throws IOException {
+    public void Login() throws IOException {
         String correo = txt_correo.getText();
         String password = txt_password.getText();
 
+
         // Buscar el usuario por correo
-        UsuarioModelo usuario = usuarioServiceImpl.findByCorreo(correo);
+        EmpleadoModel usuario = empleadoServiceImpl.findByCorreo(correo);
 
         if (usuario != null && usuario.getPassword().equals(password)) {
-            mostrarAlerta("Inicio de sesión exitoso", "Bienvenido " + usuario.getCorreo(), Alert.AlertType.INFORMATION);
+            //mostrarAlerta("Inicio de sesión exitoso", "Bienvenido " + usuario.getCorreo(), Alert.AlertType.INFORMATION);
             // Llamar al método para abrir la nueva ventana
             abrirNuevaVentana();
 
@@ -64,7 +67,7 @@ public class usuarioControlador implements Initializable {
     }
 
     // Método para mostrar alertas en JavaFX
-    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+    public void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
@@ -73,10 +76,10 @@ public class usuarioControlador implements Initializable {
     }
 
     // Método para abrir la nueva ventana o cambiar de escena
-    private void abrirNuevaVentana() throws IOException {
+    public void abrirNuevaVentana() throws IOException {
         // Cargar el nuevo archivo FXML
         Parent root = FXMLLoader.load(getClass().getResource("/view/homeView.fxml"));
-        
+
         // Obtener el stage actual desde el botón o la ventana
         Stage stage = (Stage) btn_ingresar.getScene().getWindow();
 
@@ -85,5 +88,6 @@ public class usuarioControlador implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
 
 }
