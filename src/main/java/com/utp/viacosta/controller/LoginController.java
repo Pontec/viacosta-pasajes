@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
         if (usuario != null && usuario.getPassword().equals(password)) {
             //mostrarAlerta("Inicio de sesión exitoso", "Bienvenido " + usuario.getCorreo(), Alert.AlertType.INFORMATION);
             // Llamar al método para abrir la nueva ventana
-            abrirNuevaVentana();
+            abrirNuevaVentana(usuario);
 
         } else {
             mostrarAlerta("Error de autenticación", "Correo o contraseña incorrectos", Alert.AlertType.ERROR);
@@ -75,10 +75,13 @@ public class LoginController implements Initializable {
         alert.showAndWait();
     }
 
+    /*
     // Método para abrir la nueva ventana o cambiar de escena
     public void abrirNuevaVentana() throws IOException {
         // Cargar el nuevo archivo FXML
-        Parent root = FXMLLoader.load(getClass().getResource("/view/homeView.fxml"));
+        Parent root = FxmlCargarUtil.load("/view/homeView.fxml");
+
+
 
         // Obtener el stage actual desde el botón o la ventana
         Stage stage = (Stage) btn_ingresar.getScene().getWindow();
@@ -89,5 +92,27 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
+     */
+
+    // Método para abrir la nueva ventana o cambiar de escena
+    public void abrirNuevaVentana(EmpleadoModel usuario) throws IOException {
+        // Crear un FXMLLoader para cargar el archivo FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homeView.fxml"));
+
+        // Cargar el archivo FXML
+        Parent root = loader.load();
+
+        // Obtener el controlador del archivo FXML cargado
+        homeControlador homeController = loader.getController();
+        homeController.setEmpleadoModel(usuario); // Configura el usuario actual en el controlador
+
+        // Obtener el stage actual desde el botón o la ventana
+        Stage stage = (Stage) btn_ingresar.getScene().getWindow();
+
+        // Cambiar la escena
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
