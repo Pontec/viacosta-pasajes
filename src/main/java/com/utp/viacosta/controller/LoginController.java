@@ -2,7 +2,6 @@ package com.utp.viacosta.controller;
 
 import com.utp.viacosta.model.EmpleadoModel;
 import com.utp.viacosta.service.impl.EmpleadoServiceImpl;
-import com.utp.viacosta.util.FxmlCargarUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,11 +35,10 @@ public class LoginController implements Initializable {
     private TextField txt_password;
 
     @FXML
+
     void Login(ActionEvent event) throws IOException {
         Login();
-
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
