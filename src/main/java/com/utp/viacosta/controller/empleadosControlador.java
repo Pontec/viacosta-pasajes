@@ -1,7 +1,9 @@
 package com.utp.viacosta.controller;
 
 import com.utp.viacosta.model.EmpleadoModel;
+import com.utp.viacosta.model.RolModel;
 import com.utp.viacosta.service.EmpleadoService;
+import com.utp.viacosta.service.RolService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,13 +13,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 @Component
 public class empleadosControlador implements Initializable {
 
     @Autowired
     private EmpleadoService empleadoService;
+
+    @Autowired
+    private RolService rolService;
 
     @FXML
     private Button btn_actualizar;
@@ -29,7 +37,7 @@ public class empleadosControlador implements Initializable {
     private Button btn_guardar;
 
     @FXML
-    private ComboBox<?> cbox_rol;
+    private ComboBox<RolModel> cbox_rol;
 
     @FXML
     private TextField txt_contraseña;
@@ -60,11 +68,12 @@ public class empleadosControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listarEmpleados();
+        cargarRoles();
     }
 
 
     @FXML
-    public void guardarEmpleados(ActionEvent event){
+    private void guardarEmpleados(ActionEvent event){
         EmpleadoModel empleado = new EmpleadoModel();
         empleado.setDni(txt_dni.getText());
         empleado.setNombre(txt_nombre.getText());
@@ -73,16 +82,33 @@ public class empleadosControlador implements Initializable {
         empleado.setPassword(txt_contraseña.getText());
         empleado.setTelefono(txt_telefono.getText());
 
+        RolModel rolSeleccionado = cbox_rol.getValue();  // Obtener el rol seleccionado
+        Set<RolModel> roles = new HashSet<>();  // Crear un Set de roles (o lista, dependiendo de tu modelo)
+        roles.add(rolSeleccionado);  // Agregar el rol seleccionado al conjunto de roles
+        empleado.setRoles(roles);  // Asignar el conjunto de roles al empleado
+
         empleadoService.save(empleado);
         clear();
     }
 
     @FXML
-    public void listarEmpleados(){
+    private void listarEmpleados(){
         tabla_empleados.setItems(FXCollections.observableArrayList(empleadoService.findAll()));
 
     }
 
+    private void cargarRoles(){
+        //cbox_rol.setItems(FXCollections.observableArrayList(rolService.findAll()));
+        List<RolModel> roles = rolService.findAll();  // Aquí llamas al servicio que te trae todos los roles
+        cbox_rol.setItems(FXCollections.observableArrayList(roles));  // Llenas el ComboBox con los roles
+    }
+
+    @FXML
+    private void deleteEmpleado(ActionEvent event){
+        empleadoService.deleteById(empleadoService.findAll().get(0).getId());
+        clear();
+        listarEmpleados();
+    }
     @FXML
     public void clear(){
         txt_dni.setText("");
@@ -91,7 +117,6 @@ public class empleadosControlador implements Initializable {
         txt_correo.setText("");
         txt_contraseña.setText("");
         txt_telefono.setText("");
-
     }
 
 

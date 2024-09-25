@@ -3,15 +3,20 @@ package com.utp.viacosta.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuarios")
+@Table(name = "empleados")
 public class EmpleadoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empleado")
     private Integer id;
     private String dni;
     private String nombre;
@@ -20,6 +25,13 @@ public class EmpleadoModel {
     @Column(name = "contraseña")
     private String password;
     private String telefono;
+    @ManyToMany(fetch = FetchType.EAGER) //Traera tambien la entidad relaciona
+    @JoinTable(name = "usuario_roles",
+        joinColumns = @JoinColumn(name = "id_empleado"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol")
+    )
+    private Set<RolModel> roles = new HashSet<>();
+
 
     @Override
     public String toString() {
