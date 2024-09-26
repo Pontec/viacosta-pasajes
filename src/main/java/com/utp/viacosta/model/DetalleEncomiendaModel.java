@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "detalle_encomienda")
 
-public class EncomiendaModel {
+public class DetalleEncomiendaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_detalle")
@@ -27,4 +27,8 @@ public class EncomiendaModel {
     private int subtotal;
     @Column(name = "Buses_id_bus")
     private int busesIdBus;
+
+    @ManyToOne
+    @JoinColumn(name = "id_comprobante")
+    private ComprobanteModel comprobante;
 }

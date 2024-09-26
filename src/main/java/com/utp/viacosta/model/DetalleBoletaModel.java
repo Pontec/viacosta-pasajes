@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "detalle_boleta")
 
-public class BoletaModel {
+public class DetalleBoletaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_detalle")
@@ -34,6 +35,14 @@ public class BoletaModel {
     private int comprobante;
     private int asiento;
     private int compra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_comprobante")
+    private ComprobanteModel Comprobante;
+
+    @ManyToOne
+    @JoinColumn(name = "id_asiento")
+    private AsientoModelo asientoModelo;
 
 
 }

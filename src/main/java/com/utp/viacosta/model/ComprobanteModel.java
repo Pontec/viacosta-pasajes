@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Time;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +28,12 @@ public class ComprobanteModel {
     private int numeroComproobante;
     @Column (name = "fecha_emision")
     private Time fechaEmision;
+
+    @OneToMany(mappedBy = "comprobante")
+    private List<DetalleEncomiendaModel> listDetalleEncomienda;
+
+    @OneToMany(mappedBy = "comprobante")
+    private List<DetalleBoletaModel> listDetalleBoleta;
+
+
 }
