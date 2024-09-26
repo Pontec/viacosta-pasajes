@@ -25,14 +25,16 @@ public class EmpleadoModel {
     @Column(name = "contraseña")
     private String password;
     private String telefono;
+    @ManyToOne
+    @JoinColumn(name = "id_sede")
+    private SedesModel sede;
+
     @ManyToMany(fetch = FetchType.EAGER) //Traera tambien la entidad relaciona
     @JoinTable(name = "usuario_roles",
-        joinColumns = @JoinColumn(name = "id_empleado"),
+            joinColumns = @JoinColumn(name = "id_empleado"),
             inverseJoinColumns = @JoinColumn(name = "id_rol")
     )
     private Set<RolModel> roles = new HashSet<>();
-
-
     @Override
     public String toString() {
         return "EmpleadoModel{" +
