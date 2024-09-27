@@ -1,4 +1,4 @@
-
+/*LOGIN*/
 .input-login {
     -fx-font-size: 14px;
     -fx-border-color: #ccc;
@@ -38,4 +38,40 @@
 
 .btn-login:focused {
     -fx-effect: dropshadow(three-pass-box, rgba(0, 123, 255, 0.5), 10, 0, 0, 0);
+}
+
+/*VENTANA PRINCIPAL*/
+#contentLogo{
+    -fx-background-color: #87ceeb;
+}
+
+#asidePanel {
+    -fx-background-color: #f0f8ff;
+    -fx-border-right: 1px solid #ccc;
+    -fx-box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.btnAside {
+    -fx-background-color: #ffffff;
+    -fx-border: none;
+    -fx-text-fill: #1e90ff;
+    -fx-font-weight: bold;
+    -fx-cursor: pointer;
+    -fx-transition: background-color 0.3s, color 0.3s;
+    -fx-border-bottom: 1px solid #e6e6e6;
+}
+
+#lastButton {
+    -fx-border-bottom: none;
+}
+
+.btnAside:hover {
+    -fx-background-color: #0277bd;
+    -fx-text-fill: #ffffff;
+}
+
+.btnAside:pressed, .btnAside:focused {
+    -fx-background-color: #0b4c85;
+    -fx-text-fill: #ffffff;
+    -fx-transform: scale(0.98);
 }
