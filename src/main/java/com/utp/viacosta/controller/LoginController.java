@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -95,21 +96,23 @@ public class LoginController implements Initializable {
     // Metodo para abrir la nueva ventana o cambiar de escena
     public void abrirNuevaVentana(EmpleadoModel usuario) throws IOException {
         // Crear un FXMLLoader para cargar el archivo FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homeView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VentanaPrincipal.fxml"));
 
         // Cargar el archivo FXML
         Parent root = loader.load();
 
         // Obtener el controlador del archivo FXML cargado
-        homeControlador homeController = loader.getController();
-        homeController.setEmpleadoModel(usuario); // Configura el usuario actual en el controlador
+        VentanaPrincipalController ventanaController = loader.getController();
+        ventanaController.setEmpleadoModel(usuario); // Configura el usuario actual en el controlador
 
         // Obtener el stage actual desde el botón o la ventana
         Stage stage = (Stage) btn_ingresar.getScene().getWindow();
 
         // Cambiar la escena
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 

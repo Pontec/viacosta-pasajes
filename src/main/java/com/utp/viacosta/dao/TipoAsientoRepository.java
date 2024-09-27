@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TipoAsientoRepository extends JpaRepository<TipoAsientoModel, Long> {
+public interface TipoAsientoRepository extends JpaRepository<TipoAsientoModel, Integer> {
 
 }

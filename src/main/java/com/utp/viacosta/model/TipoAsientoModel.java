@@ -18,7 +18,7 @@ public class TipoAsientoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tipo_asiento")
-    private Long idAsiento;
+    private Integer idAsiento;
     private String nombre; //Falta agregar a la base de datos :(
     private String descripcion;
     @Column(name = "cargo_adicional")

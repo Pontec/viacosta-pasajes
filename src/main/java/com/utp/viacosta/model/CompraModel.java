@@ -20,11 +20,11 @@ public class CompraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
-    private Long idCompra;
+    private Integer idCompra;
     @Column(name = "id_cliente")
-    private Long idCliente;
+    private int idCliente;
     @Column(name = "id_empleado")
-    private Long idEmpleado;
+    private int idEmpleado;
     private String tipoCompra;
     private LocalDate fecha;
     private LocalTime hora;

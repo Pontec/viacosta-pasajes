@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface BusRepository extends JpaRepository<BusModel, Long> {
+public interface BusRepository extends JpaRepository<BusModel, Integer> {
 
 }

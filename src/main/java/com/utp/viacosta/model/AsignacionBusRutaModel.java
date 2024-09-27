@@ -19,11 +19,11 @@ public class AsignacionBusRutaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_asignacion")
-    private Long idAsignacion;
+    private Integer idAsignacion;
     @Column(name = "id_bus")
-    private Long idBus;
+    private int idBus;
     @Column(name = "id_ruta")
-    private Long idRuta;
+    private int idRuta;
     @Column(name = "fecha_salida")
     private LocalDate fechaSalida;
     @Column(name = "hora_salida")

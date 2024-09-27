@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface RutaRepository extends JpaRepository<RutaModel, Long> {
+public interface RutaRepository extends JpaRepository<RutaModel, Integer> {
 
 }

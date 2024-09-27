@@ -18,7 +18,7 @@ public class RutaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ruta")
-    private Long idRuta;
+    private Integer idRuta;
     private String origen;
     private String destino;
     private String duracion;

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface AsientoRepository extends JpaRepository<AsientoModel, Long> {
+public interface AsientoRepository extends JpaRepository<AsientoModel, Integer> {
 
 }

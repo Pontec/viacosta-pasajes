@@ -18,15 +18,15 @@ public class AsientoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_asiento")
-    private Long idAsiento;
+    private Integer idAsiento;
     @Column(name = "id_bus")
-    private Long idBus;
+    private int idBus;
     @Column(name = "numero_asiento")
     private int numeroAsiento;
     private String estado;
     private double precio; //Falta agregar a la base de datos :(
     @Column(name = "id_tipo_asiento")
-    private Long idTipoAsiento;
+    private int idTipoAsiento;
 
     @ManyToOne
     @JoinColumn(name = "id_tipo_asiento" , insertable = false, updatable = false)
