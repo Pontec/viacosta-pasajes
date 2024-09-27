@@ -16,16 +16,15 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "comprobantes")
-
-
 public class ComprobanteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id_comprobante")
+    private Integer idComprobante;
     @Column (name = "tipo_comprobante")
     private String tipoComprobante;
     @Column (name = "numero_comprobante")
-    private int numeroComproobante;
+    private int numeroComprobante;
     @Column (name = "fecha_emision")
     private Time fechaEmision;
 

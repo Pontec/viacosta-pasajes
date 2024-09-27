@@ -23,11 +23,15 @@ public class RunViaCosta extends Application{
 		// Pasar el contexto de Spring a la clase utilitaria
 		FxmlCargarUtil.setApplicationContext(context);
 
-		// Cargar la pantalla de login utilizando el método utilitario
+		// Cargar la pantalla de login utilizando el metodo utilitario
 		var fxml = new FXMLLoader(getClass().getResource("/view/Loginview.fxml"));
 		fxml.setControllerFactory(context::getBean); // Para usar beans gestionados por Spring
 
-		var scene = new Scene(fxml.load());
+		//Cargar archivo css
+		Scene scene = new Scene(fxml.load());
+		scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+
 		stage.setTitle("Sistema Pasajes Via Costa");
 		stage.setScene(scene);
 		stage.show();

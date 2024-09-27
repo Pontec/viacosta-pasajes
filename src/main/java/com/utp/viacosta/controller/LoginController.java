@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField txt_correo;
-
     @FXML
-    private TextField txt_password;
+    private PasswordField txt_password;
 
     @FXML
 
@@ -45,7 +45,7 @@ public class LoginController implements Initializable {
 
     }
 
-    // Método que maneja el inicio de sesión
+    // Metodo que maneja el inicio de sesión
     public void Login() throws IOException {
         String correo = txt_correo.getText();
         String password = txt_password.getText();
@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
 
         if (usuario != null && usuario.getPassword().equals(password)) {
             //mostrarAlerta("Inicio de sesión exitoso", "Bienvenido " + usuario.getCorreo(), Alert.AlertType.INFORMATION);
-            // Llamar al método para abrir la nueva ventana
+            // Llamar al metodo para abrir la nueva ventana
             abrirNuevaVentana(usuario);
 
         } else {
@@ -64,7 +64,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    // Método para mostrar alertas en JavaFX
+    // Metodo para mostrar alertas en JavaFX
     public void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
@@ -74,7 +74,7 @@ public class LoginController implements Initializable {
     }
 
     /*
-    // Método para abrir la nueva ventana o cambiar de escena
+    // Metodo para abrir la nueva ventana o cambiar de escena
     public void abrirNuevaVentana() throws IOException {
         // Cargar el nuevo archivo FXML
         Parent root = FxmlCargarUtil.load("/view/homeView.fxml");
@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
 
      */
 
-    // Método para abrir la nueva ventana o cambiar de escena
+    // Metodo para abrir la nueva ventana o cambiar de escena
     public void abrirNuevaVentana(EmpleadoModel usuario) throws IOException {
         // Crear un FXMLLoader para cargar el archivo FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homeView.fxml"));

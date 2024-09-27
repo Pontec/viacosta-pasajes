@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "detalle_boleta")
-
 public class DetalleBoletaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,17 +30,23 @@ public class DetalleBoletaModel {
     @Column(name = "precio_unitario")
     private double precioUnitario;
     private double subtotal;
-    private int comprobante;
-    private int asiento;
-    private int compra;
+    @Column(name = "id_comprobante")
+    private int idComprobante;
+    @Column(name = "id_asiento")
+    private int idAsiento;
+    @Column(name = "id_compra")
+    private int idCompra;
 
     @ManyToOne
-    @JoinColumn(name = "id_comprobante")
-    private ComprobanteModel Comprobante;
+    @JoinColumn(name = "id_comprobante", insertable = false, updatable = false)
+    private ComprobanteModel comprobante;
 
     @ManyToOne
-    @JoinColumn(name = "id_asiento")
-    private AsientoModelo asientoModelo;
+    @JoinColumn(name = "id_asiento" , insertable = false, updatable = false)
+    private AsientoModel asiento;
 
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private CompraModel compra;
 
 }

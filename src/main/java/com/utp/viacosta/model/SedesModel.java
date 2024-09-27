@@ -14,14 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "sedes")
-
 public class SedesModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sede")
     private Integer id;
-    @Column(name = "nombre_sedes")
+    @Column(name = "nombre_sede")
     private String nombreSedes;
     private String direccion;
     private String ruc;

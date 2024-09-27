@@ -1,0 +1,41 @@
+
+.input-login {
+    -fx-font-size: 14px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-color: #fff;
+    -fx-border-width: 1px;
+}
+
+.input-login:focused {
+    -fx-border-color: #007bff;
+    -fx-box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-login {
+    -fx-display: inline-block;
+    -fx-width: 100%;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-text-fill: #fff;
+    -fx-background-color: #000000;
+    -fx-border: none;
+    -fx-border-radius: 4px;
+    -fx-cursor: pointer;
+    -fx-transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    -fx-background-color: #292929;
+}
+
+.btn-login:pressed {
+    -fx-background-color: #0d1623;
+}
+
+.btn-login:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 123, 255, 0.5), 10, 0, 0, 0);
+}

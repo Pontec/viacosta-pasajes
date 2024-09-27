@@ -7,28 +7,37 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.LoginController">
+<AnchorPane prefHeight="448.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.LoginController">
    <children>
-
-      <!-- Etiqueta Correo -->
-      <Label layoutX="244.0" layoutY="149.0" text="Correo:" />
-
-      <!-- Campo de texto para correo -->
-      <TextField fx:id="txt_correo" layoutX="341.0" layoutY="142.0" prefHeight="30.0" prefWidth="200.0" />
-
-      <!-- Etiqueta Contraseña -->
-      <Label layoutX="252.0" layoutY="201.0" text="Contraseña:" />
-
-      <!-- Campo de texto para contraseña -->
-      <PasswordField fx:id="txt_password" layoutX="341.0" layoutY="194.0" prefHeight="30.0" prefWidth="200.0" />
-
-      <!-- Botón Ingresar -->
-      <Button fx:id="btn_ingresar" layoutX="330.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="200.0" text="Iniciar Sesión" />
-      <ImageView fitHeight="195.0" fitWidth="220.0" layoutX="26.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="478.0" fitWidth="444.0" pickOnBounds="true">
          <image>
-            <Image url="@../img/login_logo.png" />
+            <Image url="@../img/img_login.jpg" />
          </image>
       </ImageView>
+      <Pane layoutX="444.0" prefHeight="499.0" prefWidth="418.0" style="-fx-background-color: #117399;">
+         <children>
+            <ImageView fitHeight="188.0" fitWidth="426.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo-via-costa.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txt_correo" layoutX="81.0" layoutY="257.0" prefHeight="30.0" prefWidth="290.0" />
+            <PasswordField fx:id="txt_password" layoutX="81.0" layoutY="337.0" prefHeight="30.0" prefWidth="290.0" styleClass="input-login" />
+            <Button fx:id="btn_ingresar" layoutX="126.0" layoutY="401.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="200.0" styleClass="btn-login" text="Iniciar Sesión" />
+            <Label layoutX="81.0" layoutY="221.0" text="Correo Electrónico:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="81.0" layoutY="302.0" text="Contraseña:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

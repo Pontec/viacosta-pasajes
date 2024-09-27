@@ -6,13 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "asientos")
-public class AsientoModelo {
+public class AsientoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_asiento")
@@ -25,10 +27,15 @@ public class AsientoModelo {
     private double precio; //Falta agregar a la base de datos :(
     @Column(name = "id_tipo_asiento")
     private Long idTipoAsiento;
+
     @ManyToOne
     @JoinColumn(name = "id_tipo_asiento" , insertable = false, updatable = false)
-    private TipoAsientoModelo tipoAsiento;
+    private TipoAsientoModel tipoAsiento;
+
     @ManyToOne
     @JoinColumn(name = "id_bus" , insertable = false, updatable = false)
-    private BusModelo bus;
+    private BusModel bus;
+
+    @OneToMany(mappedBy = "asiento")
+    private List<DetalleBoletaModel> detalleBoletas;
 }

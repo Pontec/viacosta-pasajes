@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "tipo_asiento")
-public class TipoAsientoModelo {
+public class TipoAsientoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tipo_asiento")
@@ -24,5 +24,5 @@ public class TipoAsientoModelo {
     @Column(name = "cargo_adicional")
     private double cargoExtra;
     @OneToMany(mappedBy = "tipoAsiento")
-    private List<AsientoModelo> asientos;
+    private List<AsientoModel> asientos;
 }

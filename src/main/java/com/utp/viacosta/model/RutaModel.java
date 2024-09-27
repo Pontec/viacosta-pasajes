@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "rutas")
-public class RutaModelo {
+public class RutaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ruta")
@@ -23,5 +23,5 @@ public class RutaModelo {
     private String destino;
     private String duracion;
     @OneToMany(mappedBy = "rutaAsignada")
-    private List<AsignacionBusRutaModelo> asignaciones;
+    private List<AsignacionBusRutaModel> asignaciones;
 }

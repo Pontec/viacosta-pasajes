@@ -12,7 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "detalle_encomienda")
-
 public class DetalleEncomiendaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +24,18 @@ public class DetalleEncomiendaModel {
     @Column(name = "precio_unitario")
     private int precioUnitario;
     private int subtotal;
-    @Column(name = "Buses_id_bus")
-    private int busesIdBus;
+    @Column(name = "id_bus")
+    private int idBus;
 
     @ManyToOne
-    @JoinColumn(name = "id_comprobante")
+    @JoinColumn(name = "id_comprobante" , insertable = false, updatable = false)
     private ComprobanteModel comprobante;
+
+    @ManyToOne
+    @JoinColumn(name = "id_bus" , insertable = false, updatable = false)
+    private BusModel bus;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra" , insertable = false, updatable = false)
+    private CompraModel compra;
 }

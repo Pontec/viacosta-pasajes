@@ -18,19 +18,22 @@ public class EmpleadoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empleado")
     private Integer id;
-    private String dni;
     private String nombre;
     private String apellido;
+    private String dni;
     private String correo;
     @Column(name = "contraseña")
     private String password;
     private String telefono;
+    @Column(name = "id_sede")
+    private int idSede;
+
     @ManyToOne
-    @JoinColumn(name = "id_sede")
+    @JoinColumn(name = "id_sede", insertable = false, updatable = false)
     private SedesModel sede;
 
     @ManyToMany(fetch = FetchType.EAGER) //Traera tambien la entidad relaciona
-    @JoinTable(name = "usuario_roles",
+    @JoinTable(name = "empleado_roles",
             joinColumns = @JoinColumn(name = "id_empleado"),
             inverseJoinColumns = @JoinColumn(name = "id_rol")
     )

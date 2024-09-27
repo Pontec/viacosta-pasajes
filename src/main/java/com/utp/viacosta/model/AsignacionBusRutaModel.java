@@ -15,7 +15,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "asignacion_buses_rutas")
-public class AsignacionBusRutaModelo {
+public class AsignacionBusRutaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_asignacion")
@@ -30,9 +30,9 @@ public class AsignacionBusRutaModelo {
     private LocalTime horaSalida;
     @ManyToOne
     @JoinColumn(name = "id_bus", insertable = false, updatable = false)
-    private BusModelo busAsignado;
+    private BusModel busAsignado;
     @ManyToOne
     @JoinColumn(name = "id_ruta", insertable = false, updatable = false)
-    private RutaModelo rutaAsignada;
+    private RutaModel rutaAsignada;
 
 }
