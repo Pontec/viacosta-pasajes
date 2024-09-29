@@ -1,5 +1,4 @@
 package com.utp.viacosta.controller;
-
 import com.utp.viacosta.model.EmpleadoModel;
 import com.utp.viacosta.service.impl.EmpleadoServiceImpl;
 import javafx.event.ActionEvent;
@@ -12,11 +11,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,17 +25,14 @@ public class LoginController implements Initializable {
 
     @Autowired
     private EmpleadoServiceImpl empleadoServiceImpl;
-
-    @FXML
-    private Button btn_ingresar;
-
     @FXML
     private TextField txt_correo;
     @FXML
     private PasswordField txt_password;
+    @FXML
+    private Button btn_ingresar;
 
     @FXML
-
     void Login(ActionEvent event) throws IOException {
         Login();
     }
@@ -110,7 +106,6 @@ public class LoginController implements Initializable {
 
         // Cambiar la escena
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();

@@ -1,13 +1,17 @@
 package com.utp.viacosta.controller;
 
 import com.utp.viacosta.model.EmpleadoModel;
+import com.utp.viacosta.util.FxmlCargarUtil;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -43,6 +47,8 @@ public class VentanaPrincipalController implements Initializable {
     private Button btn_facturacion;
     @FXML
     private Button btn_buses;
+    @FXML
+    private AnchorPane contentPanel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -67,7 +73,14 @@ public class VentanaPrincipalController implements Initializable {
             btn_reportes.setVisible(roles.contains("ADMINISTRADOR"));
             btn_config.setVisible(roles.contains("ADMINISTRADOR"));
             btn_logout.setVisible(true);
-            // Puedes ajustar la visibilidad de otros botones o elementos según sea necesario
         }
     }
+
+    @FXML
+    public void btnFacturacion(ActionEvent actionEvent) throws IOException {
+        Parent vista = FxmlCargarUtil.load("/view/facturacionView.fxml");
+        ventanaPrincipal.setCenter(vista);
+    }
+
+
 }

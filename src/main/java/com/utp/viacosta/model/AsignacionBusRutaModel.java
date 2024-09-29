@@ -34,5 +34,4 @@ public class AsignacionBusRutaModel {
     @ManyToOne
     @JoinColumn(name = "id_ruta", insertable = false, updatable = false)
     private RutaModel rutaAsignada;
-
 }
