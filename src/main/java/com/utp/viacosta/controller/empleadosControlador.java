@@ -5,10 +5,12 @@ import com.utp.viacosta.model.RolModel;
 import com.utp.viacosta.service.EmpleadoService;
 import com.utp.viacosta.service.RolService;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -42,12 +44,8 @@ public class empleadosControlador implements Initializable {
     @FXML
     private TextField txt_contraseña;
 
-    //@FXML
-    //private TableView<EmpleadoModel> tabla_empleados;
-
     @FXML
-    private ListView<EmpleadoModel> tabla_empleados;
-
+    private TableView<EmpleadoModel> tabla_empleados;
 
     @FXML
     private TextField txt_apellido;
@@ -95,6 +93,8 @@ public class empleadosControlador implements Initializable {
     private void listarEmpleados(){
         tabla_empleados.setItems(FXCollections.observableArrayList(empleadoService.findAll()));
 
+        //tabla_empleados.setItems(FXCollections.observableArrayList(empleadoService.findAll()));
+
     }
 
     private void cargarRoles(){
@@ -119,6 +119,19 @@ public class empleadosControlador implements Initializable {
         txt_telefono.setText("");
     }
 
+
+
+    //Metodos de apoyo
+    //Metodo para mapear las columnas de la tabla
+    private void configurarColumnas() {
+        tabla_empleados.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tabla_empleados.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tabla_empleados.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        tabla_empleados.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("dni"));
+        tabla_empleados.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        tabla_empleados.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("correo"));
+        tabla_empleados.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("rol")); // Asegúrate de que tu modelo tenga una representación de Rol.
+    }
 
 
 

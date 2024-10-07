@@ -3,17 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #9b9b9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
    <children>
-      <Pane layoutX="36.0" layoutY="28.0" prefHeight="593.0" prefWidth="275.0" style="-fx-background-color: ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="28.0">
+      <Pane layoutX="38.0" layoutY="32.0" prefHeight="656.0" prefWidth="226.0" AnchorPane.bottomAnchor="32.0" AnchorPane.topAnchor="32.0">
          <children>
             <Label layoutX="34.0" layoutY="54.0" text="DNI:" />
             <Label layoutX="32.0" layoutY="119.0" text="Nombre:" />
@@ -34,15 +32,19 @@
             <Button fx:id="btn_eliminar" layoutX="90.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Eliminar" />
          </children>
       </Pane>
-      <Pane layoutX="333.0" layoutY="28.0" prefHeight="593.0" prefWidth="573.0" style="-fx-background-color: white;">
+      <Pane layoutX="274.0" layoutY="28.0" prefHeight="593.0" prefWidth="757.0" style="-fx-background-color: white;">
          <children>
-            <TableView layoutX="14.0" layoutY="22.0" prefHeight="165.0" prefWidth="530.0">
+            <TableView fx:id="tabla_empleados" layoutX="14.0" layoutY="22.0" prefHeight="552.0" prefWidth="717.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="117.0" text="NOMBRE" />
+                  <TableColumn prefWidth="103.0" text="APELLIDO" />
+                  <TableColumn prefWidth="63.0" text="DNI" />
+                  <TableColumn prefWidth="97.0" text="TELEFONO" />
+                  <TableColumn prefWidth="164.0" text="CORREO" />
+                  <TableColumn prefWidth="97.0" text="ROL" />
               </columns>
             </TableView>
-            <ListView fx:id="tabla_empleados" layoutX="14.0" layoutY="220.0" prefHeight="252.0" prefWidth="497.0" />
          </children>
       </Pane>
    </children>
