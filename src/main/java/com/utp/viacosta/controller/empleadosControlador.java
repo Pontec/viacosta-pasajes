@@ -98,7 +98,6 @@ public class empleadosControlador implements Initializable {
     }
 
     private void cargarRoles(){
-        //cbox_rol.setItems(FXCollections.observableArrayList(rolService.findAll()));
         List<RolModel> roles = rolService.findAll();  // Aquí llamas al servicio que te trae todos los roles
         cbox_rol.setItems(FXCollections.observableArrayList(roles));  // Llenas el ComboBox con los roles
     }
