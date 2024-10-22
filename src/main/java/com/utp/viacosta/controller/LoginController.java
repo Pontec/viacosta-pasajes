@@ -40,6 +40,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
     }
 
     // Metodo que maneja el inicio de sesión

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
    <children>
       <Pane layoutX="38.0" layoutY="32.0" prefHeight="656.0" prefWidth="226.0" AnchorPane.bottomAnchor="32.0" AnchorPane.topAnchor="32.0">
          <children>
@@ -28,21 +28,21 @@
             <ComboBox fx:id="cbox_rol" layoutX="30.0" layoutY="424.0" prefWidth="150.0" promptText="Selecciona un rol" />
             <Label layoutX="32.0" layoutY="401.0" text="Rol" />
             <Button fx:id="btn_guardar" layoutX="90.0" layoutY="470.0" mnemonicParsing="false" onAction="#guardarEmpleados" prefHeight="25.0" prefWidth="88.0" text="Guardar" />
-            <Button fx:id="btn_actualizar" layoutX="90.0" layoutY="504.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Actualizar" />
-            <Button fx:id="btn_eliminar" layoutX="90.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Eliminar" />
+            <Button fx:id="btn_actualizar" layoutX="90.0" layoutY="504.0" mnemonicParsing="false" onAction="#act_actualizar" prefHeight="25.0" prefWidth="88.0" text="Actualizar" />
+            <Button fx:id="btn_eliminar" layoutX="90.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="25.0" prefWidth="88.0" text="Eliminar" />
          </children>
       </Pane>
       <Pane layoutX="274.0" layoutY="28.0" prefHeight="593.0" prefWidth="757.0" style="-fx-background-color: white;">
          <children>
             <TableView fx:id="tabla_empleados" layoutX="14.0" layoutY="22.0" prefHeight="552.0" prefWidth="717.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="117.0" text="NOMBRE" />
-                  <TableColumn prefWidth="103.0" text="APELLIDO" />
-                  <TableColumn prefWidth="63.0" text="DNI" />
-                  <TableColumn prefWidth="97.0" text="TELEFONO" />
-                  <TableColumn prefWidth="164.0" text="CORREO" />
-                  <TableColumn prefWidth="97.0" text="ROL" />
+                <TableColumn fx:id="columnId" prefWidth="39.999969482421875" text="ID" />
+                <TableColumn fx:id="columnNombre" prefWidth="153.60000610351562" text="NOMBRE" />
+                  <TableColumn fx:id="columnApellido" prefWidth="103.0" text="APELLIDO" />
+                  <TableColumn fx:id="columnDni" prefWidth="63.0" text="DNI" />
+                  <TableColumn fx:id="columnTelefono" prefWidth="97.0" text="TELEFONO" />
+                  <TableColumn fx:id="columnCorreo" prefWidth="164.0" text="CORREO" />
+                  <TableColumn fx:id="columnRol" prefWidth="97.0" text="ROL" />
               </columns>
             </TableView>
          </children>
