@@ -82,5 +82,11 @@ public class VentanaPrincipalController implements Initializable {
         ventanaPrincipal.setCenter(vista);
     }
 
+    @FXML
+    public void btn_empleados(ActionEvent actionEvent) throws IOException {
+        Parent vista = FxmlCargarUtil.load("/view/empleadosview.fxml");
+        ventanaPrincipal.setCenter(vista);
+    }
+
 
 }
