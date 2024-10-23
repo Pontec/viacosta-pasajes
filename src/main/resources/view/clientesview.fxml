@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.ClientesControlador">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.ClientesControlador">
    <children>
-      <Label layoutX="179.0" layoutY="120.0" prefHeight="142.0" prefWidth="243.0" text="Soy Clientes">
-         <font>
-            <Font size="41.0" />
-         </font>
-      </Label>
+      <Pane layoutX="38.0" layoutY="32.0" prefHeight="656.0" prefWidth="226.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="32.0" AnchorPane.topAnchor="32.0">
+         <children>
+            <Label layoutX="34.0" layoutY="54.0" text="DNI:" />
+            <Label layoutX="32.0" layoutY="119.0" text="Nombre:" />
+            <Label layoutX="33.0" layoutY="174.0" text="Apellido" />
+            <Label layoutX="32.0" layoutY="228.0" text="Telefono" />
+            <Label layoutX="33.0" layoutY="282.0" text="Correo" />
+            <TextField fx:id="txt_apellido" layoutX="32.0" layoutY="191.0" promptText="ingresa tu apellido" />
+            <TextField fx:id="txt_telefono" layoutX="32.0" layoutY="245.0" promptText="ejem. 931749376" />
+            <Button fx:id="btn_guardar" layoutX="62.0" layoutY="374.0" mnemonicParsing="false" onAction="#act_save" prefHeight="25.0" prefWidth="88.0" text="Guardar" />
+            <Button fx:id="btn_actulizar" layoutX="62.0" layoutY="413.0" mnemonicParsing="false" onAction="#act_actualizar" prefHeight="25.0" prefWidth="88.0" text="Actualizar" />
+            <Button fx:id="btn_eliminar" layoutX="62.0" layoutY="455.0" mnemonicParsing="false" onAction="#act_eliminar" prefHeight="25.0" prefWidth="88.0" text="Eliminar" />
+            <TextField fx:id="txt_correo" layoutX="32.0" layoutY="303.0" promptText="hola@gmail.com" />
+            <TextField fx:id="txt_dni" layoutX="32.0" layoutY="71.0" promptText="Ingresa tu dni" />
+            <TextField fx:id="txt_nombre" layoutX="32.0" layoutY="136.0" promptText="Ingresa tu nombre" />
+         </children>
+      </Pane>
+      <Pane layoutX="274.0" layoutY="28.0" prefHeight="593.0" prefWidth="757.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="tabla_clientes" layoutX="14.0" layoutY="22.0" prefHeight="552.0" prefWidth="717.0">
+               <columns>
+                  <TableColumn fx:id="columnId" prefWidth="39.999969482421875" text="ID" />
+                  <TableColumn fx:id="columnNombre" prefWidth="153.60000610351562" text="NOMBRE" />
+                  <TableColumn fx:id="columnApellido" prefWidth="125.0" text="APELLIDO" />
+                  <TableColumn fx:id="columnDni" prefWidth="96.0" text="DNI" />
+                  <TableColumn fx:id="columnTelefono" prefWidth="88.0" text="TELEFONO" />
+                  <TableColumn fx:id="columnCorreo" prefWidth="212.0" text="CORREO" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

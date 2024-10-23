@@ -2,7 +2,6 @@ package com.utp.viacosta.controller;
 
 import com.utp.viacosta.model.EmpleadoModel;
 import com.utp.viacosta.model.RolModel;
-import com.utp.viacosta.model.SedesModel;
 import com.utp.viacosta.service.EmpleadoService;
 import com.utp.viacosta.service.RolService;
 import javafx.collections.FXCollections;
