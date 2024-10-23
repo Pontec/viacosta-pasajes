@@ -3,13 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utp.viacosta.controller.empleadosControlador">
    <children>
       <Pane layoutX="38.0" layoutY="32.0" prefHeight="656.0" prefWidth="226.0" AnchorPane.bottomAnchor="32.0" AnchorPane.topAnchor="32.0">
          <children>
@@ -24,12 +25,12 @@
             <Label layoutX="33.0" layoutY="282.0" text="Correo" />
             <TextField fx:id="txt_correo" layoutX="32.0" layoutY="301.0" promptText="hola@gmail.com" />
             <Label layoutX="32.0" layoutY="344.0" text="Constraseña" />
-            <TextField fx:id="txt_contraseña" layoutX="31.0" layoutY="363.0" promptText="***********" />
             <ComboBox fx:id="cbox_rol" layoutX="30.0" layoutY="424.0" prefWidth="150.0" promptText="Selecciona un rol" />
             <Label layoutX="32.0" layoutY="401.0" text="Rol" />
             <Button fx:id="btn_guardar" layoutX="90.0" layoutY="470.0" mnemonicParsing="false" onAction="#guardarEmpleados" prefHeight="25.0" prefWidth="88.0" text="Guardar" />
             <Button fx:id="btn_actualizar" layoutX="90.0" layoutY="504.0" mnemonicParsing="false" onAction="#act_actualizar" prefHeight="25.0" prefWidth="88.0" text="Actualizar" />
             <Button fx:id="btn_eliminar" layoutX="90.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="25.0" prefWidth="88.0" text="Eliminar" />
+            <PasswordField fx:id="txt_contraseña" layoutX="32.0" layoutY="367.0" promptText="********" />
          </children>
       </Pane>
       <Pane layoutX="274.0" layoutY="28.0" prefHeight="593.0" prefWidth="757.0" style="-fx-background-color: white;">
