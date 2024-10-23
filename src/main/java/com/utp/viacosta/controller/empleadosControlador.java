@@ -2,7 +2,6 @@ package com.utp.viacosta.controller;
 
 import com.utp.viacosta.model.EmpleadoModel;
 import com.utp.viacosta.model.RolModel;
-import com.utp.viacosta.model.SedesModel;
 import com.utp.viacosta.service.EmpleadoService;
 import com.utp.viacosta.service.RolService;
 import javafx.collections.FXCollections;
@@ -25,7 +24,6 @@ public class empleadosControlador implements Initializable {
 
     @Autowired
     private EmpleadoService empleadoService;
-
     @Autowired
     private RolService rolService;
 
@@ -37,8 +35,6 @@ public class empleadosControlador implements Initializable {
 
     @FXML
     private Button btn_guardar;
-
-
 
     @FXML
     private TableView<EmpleadoModel> tabla_empleados;
@@ -70,7 +66,7 @@ public class empleadosControlador implements Initializable {
     @FXML
     private ComboBox<RolModel> cbox_rol;
     @FXML
-    private TextField txt_contraseña;
+    private PasswordField txt_contraseña;
 
 
     @Override
@@ -82,8 +78,14 @@ public class empleadosControlador implements Initializable {
         tabla_empleados.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 seleccionarActualizar();
+                btn_actualizar.setVisible(true);
+                btn_eliminar.setVisible(true);
+            }else{
+
             }
         });
+        btn_actualizar.setVisible(false);
+        btn_eliminar.setVisible(false);
     }
 
 
@@ -134,7 +136,7 @@ public class empleadosControlador implements Initializable {
     void handleEliminar(ActionEvent event) {
         EmpleadoModel empleado = tabla_empleados.getSelectionModel().getSelectedItem();
 
-        if(empleado != null){
+        if(empleado != null && mostrarConfirmacion("¿Estás seguro de eliminar el empleado?")){
             empleadoService.deleteById(empleado.getId());
             tabla_empleados.getItems().remove(empleado);
         }else{
@@ -183,16 +185,7 @@ public class empleadosControlador implements Initializable {
         txt_telefono.setText("");
     }
 
-    private boolean validarEntradas() {
-        if (
-                txt_dni.getText().isEmpty() || txt_nombre.getText().isEmpty() ||
-                txt_apellido.getText().isEmpty() || txt_correo.getText().isEmpty() ||
-                txt_contraseña.getText().isEmpty() || cbox_rol.getValue() == null ){
-            mostrarAlerta("Por favor, completa todos los campos.");
-            return false;
-        }
-        return true;
-    }
+
 
     @FXML
     private void seleccionarActualizar() {
@@ -218,5 +211,35 @@ public class empleadosControlador implements Initializable {
         alert.show();
     }
 
+    //para eliminar el cliente
+    private boolean mostrarConfirmacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(mensaje);
+        return alert.showAndWait().filter(response -> response == ButtonType.OK).isPresent();
+    }
+
+    private boolean validarEntradas() {
+        if (
+                txt_dni.getText().isEmpty() || txt_nombre.getText().isEmpty() ||
+                        txt_apellido.getText().isEmpty() || txt_correo.getText().isEmpty() ||
+                        txt_contraseña.getText().isEmpty() || cbox_rol.getValue() == null ){
+            mostrarAlerta("Por favor, completa todos los campos.");
+            return false;
+        }
+        if (txt_dni.getText().length() != 8) {
+            mostrarAlerta("El DNI debe tener 8 dígitos.");
+            return false;
+        }
+        if (txt_telefono.getText().length() != 9) {
+            mostrarAlerta("El teléfono debe tener 9 dígitos.");
+            return false;
+        }
+
+        if (!txt_correo.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            mostrarAlerta("El correo no es válido.");
+            return false;
+        }
+        return true;
+    }
 
 }
