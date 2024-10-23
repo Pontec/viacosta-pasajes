@@ -9,4 +9,5 @@ public interface ClienteService {
     void guardarCliente(ClienteModel clienteModel);
     List<ClienteModel> listaClientes();
     void eliminarCliente(Integer id);
+    void actualizarCliente(ClienteModel clienteModel);
 }

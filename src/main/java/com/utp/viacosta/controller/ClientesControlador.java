@@ -76,6 +76,7 @@ public class ClientesControlador implements Initializable {
         clienteModel.setDni(txt_dni.getText());
         clienteModel.setCorreo(txt_correo.getText());
         clienteModel.setTelefono(txt_telefono.getText());
+
         clienteService.guardarCliente(clienteModel);
         listarClientes();
         limpiar();
@@ -108,10 +109,12 @@ public class ClientesControlador implements Initializable {
         clienteModel.setCorreo(txt_correo.getText());
         clienteModel.setTelefono(txt_telefono.getText());
 
-        clienteService.guardarCliente(clienteModel);
+        clienteService.actualizarCliente(clienteModel);
         listarClientes();
         limpiar();
     }
+
+
 
 
 
