@@ -52,6 +52,12 @@ public class VentanaPrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            Parent vista = FxmlCargarUtil.load("/view/DashboardVista.fxml");
+            ventanaPrincipal.setCenter(vista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setEmpleadoModel(EmpleadoModel empleadoModel) {
@@ -97,6 +103,12 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     public void btn_rutas(ActionEvent actionEvent) throws IOException {
         Parent vista = FxmlCargarUtil.load("/view/rutasVista.fxml");
+        ventanaPrincipal.setCenter(vista);
+    }
+
+    @FXML
+    public void btn_inicio(ActionEvent actionEvent) throws IOException {
+        Parent vista = FxmlCargarUtil.load("/view/DashboardVista.fxml");
         ventanaPrincipal.setCenter(vista);
     }
 
